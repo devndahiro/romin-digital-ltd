@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile App Development | Romin Digital Ltd.</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional mobile app development by Romin Digital. Native iOS & Android apps, cross-platform solutions, and enterprise mobile applications.">
+    <meta name="keywords" content="mobile app development Rwanda, iOS app development, Android app development, cross-platform apps, mobile solutions">
+    <meta property="og:title" content="Mobile App Development | Romin Digital Ltd.">
+    <meta property="og:description" content="Professional mobile app development by Romin Digital. Native iOS & Android apps, cross-platform solutions, and enterprise mobile applications.">
+    <meta property="og:image" content="img/romin/mobile-apps-og.jpg">
+    <meta property="og:url" content="https://romindigital.com/mobile-apps">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="img/romin/favicon.ico">
+    <link rel="apple-touch-icon" href="img/romin/apple-touch-icon.png">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #D42E14 0%, #F36A11 50%, #FFBC00 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hover-3d {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-3d:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .tech-icon {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #FFBC00;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-link {
+            transition: all 0.3s ease;
+        }
+        
+        .platform-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #0A2C0D;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .app-screen {
+            transition: all 0.5s ease;
+        }
+        
+        .app-screen:hover {
+            transform: scale(1.05);
+        }
+    </style>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-red': '#D42E14',
+                        'orange-flame': '#F36A11',
+                        'yellow-gold': '#FFBC00',
+                        'deep-green': '#0A2C0D',
+                        'tagline-red': '#FF3C2A',
+                        'ios-blue': '#007AFF',
+                        'android-green': '#3DDC84'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white font-sans antialiased">
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed top-0 left-0 w-full bg-deep-green/90 text-white py-3 backdrop-blur-xl transition-all duration-500 z-40 border-b border-white/5 shadow-2xl">
+        <div class="container mx-auto px-4 xl:px-12">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center group">
+                    <img src="img/romin/log.png" alt="Romin Digital Logo" class="w-12 h-12 mr-3 transition-transform duration-300 group-hover:rotate-6">
+                    <div class="text-xl font-bold nav-logo transition-all duration-500">
+                        <span class="text-primary-red">ROMIN</span>
+                        <span class="text-white">DIGITAL</span>
+                    </div>
+                    <span class="ml-2 text-xs text-tagline-red italic">Shaping the Future</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="index.html" class="nav-link hover:text-yellow-gold transition">Home</a>
+                    <a href="about.html" class="nav-link hover:text-yellow-gold transition">About</a>
+                    <a href="services.html" class="nav-link text-yellow-gold font-medium">Services</a>
+                    <a href="store.html" class="nav-link hover:text-yellow-gold transition">IT Store</a>
+                    <a href="training.html" class="nav-link hover:text-yellow-gold transition">Training</a>
+                    <a href="contact.html" class="nav-link hover:text-yellow-gold transition">Contact</a>
+                    <a href="blog.html" class="nav-link hover:text-yellow-gold transition">Blog</a>
+                    
+                    <!-- CTA Button -->
+                    <a href="contact.html" class="bg-primary-red hover:bg-orange-flame text-white px-6 py-2 rounded-full transition-all duration-300 hover:shadow-lg">
+                        Get Quote
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none">
+                    <div class="hamburger-icon">
+                        <span class="block w-6 h-0.5 bg-white mb-1 transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1 transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-deep-green/95 z-50 transform translate-x-full transition-transform duration-500 lg:hidden">
+        <div class="flex flex-col h-full">
+            <!-- Mobile Header -->
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div class="text-xl font-bold">
+                    <span class="text-primary-red">ROMIN</span>
+                    <span class="text-white">DIGITAL</span>
+                </div>
+                <button id="mobile-close" class="text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Links -->
+            <div class="flex-1 flex flex-col justify-center px-6">
+                <a href="index.html" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition">Home</a>
+                <a href="about.html" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition">About</a>
+                <a href="services.html" class="mobile-link text-2xl font-medium text-yellow-gold py-4 border-b border-white/10">Services</a>
+                <a href="store.html" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition">IT Store</a>
+                <a href="training.html" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition">Training</a>
+                <a href="contact.html" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition">Contact</a>
+                <a href="blog.html" class="mobile-link text-2xl font-medium text-white py-4 hover:text-yellow-gold transition">Blog</a>
+            </div>
+            
+            <!-- Mobile CTA -->
+            <div class="p-6 border-t border-white/10">
+                <a href="contact.html" class="block w-full bg-primary-red hover:bg-orange-flame text-white text-center py-3 rounded-lg font-medium transition">
+                    Get Started Today
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-deep-green to-gray-900 text-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-4xl">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-purple-100/10 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-mobile-alt text-3xl text-purple-400"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                            Expert <span class="gradient-text">Mobile App</span> Development
+                        </h1>
+                        <p class="text-yellow-gold mt-2">Native and cross-platform applications for iOS and Android</p>
+                    </div>
+                </div>
+                
+                <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                    We design and develop high-performance mobile applications that engage users and drive business growth. 
+                    From concept to launch and beyond, we deliver mobile solutions that stand out in today's competitive app market.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#pricing" class="bg-primary-red hover:bg-orange-flame text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        View Pricing Packages
+                    </a>
+                    <a href="#contact" class="border-2 border-white hover:bg-white hover:text-deep-green text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:-translate-y-1">
+                        <i class="fas fa-calendar-alt mr-2"></i> Schedule Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="bg-primary-red text-white py-6">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                    <div class="text-2xl font-bold" data-counter="35">0</div>
+                    <div class="text-sm">Apps Developed</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold" data-counter="4.8">0</div>
+                    <div class="text-sm">Avg App Store Rating</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold" data-counter="500000">0</div>
+                    <div class="text-sm">Total Downloads</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold">100%</div>
+                    <div class="text-sm">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- App Showcase -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-deep-green mb-4">Our Mobile App Portfolio</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Showcasing some of our successful mobile applications</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- App 1 -->
+                <div class="relative bg-white rounded-xl shadow-lg overflow-hidden hover-3d">
+                    <span class="platform-badge" style="background-color: #007AFF;">iOS</span>
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Finance App" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-deep-green mb-2">KigaliPay</h3>
+                        <p class="text-gray-600 mb-4">Mobile banking app with secure transactions and budgeting tools</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-gold">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <a href="#" class="text-primary-red hover:text-orange-flame font-medium">
+                                View Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- App 2 -->
+                <div class="relative bg-white rounded-xl shadow-lg overflow-hidden hover-3d">
+                    <span class="platform-badge" style="background-color: #3DDC84;">Android</span>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Health App" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-deep-green mb-2">AfyaTrack</h3>
+                        <p class="text-gray-600 mb-4">Health monitoring app with telemedicine integration</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-gold">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <a href="#" class="text-primary-red hover:text-orange-flame font-medium">
+                                View Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- App 3 -->
+                <div class="relative bg-white rounded-xl shadow-lg overflow-hidden hover-3d">
+                    <span class="platform-badge" style="background: linear-gradient(to right, #007AFF, #3DDC84);">Cross-Platform</span>
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="E-commerce App" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-deep-green mb-2">SokoYetu</h3>
+                        <p class="text-gray-600 mb-4">E-commerce platform for African artisans and buyers</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-gold">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <a href="#" class="text-primary-red hover:text-orange-flame font-medium">
+                                View Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="project.html" class="inline-flex items-center text-primary-red hover:text-orange-flame font-medium group">
+                    <span>View All Mobile Projects</span>
+                    <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Approach -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-deep-green mb-4">Our Mobile Development Process</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">A proven methodology for delivering successful mobile applications</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover-3d">
+                    <div class="w-20 h-20 bg-primary-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lightbulb text-2xl text-primary-red"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-3">Concept & Strategy</h3>
+                    <p class="text-gray-600">Market research, user personas, and feature prioritization</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover-3d">
+                    <div class="w-20 h-20 bg-orange-flame/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-pencil-ruler text-2xl text-orange-flame"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-3">UI/UX Design</h3>
+                    <p class="text-gray-600">Wireframing, prototyping, and user experience optimization</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover-3d">
+                    <div class="w-20 h-20 bg-yellow-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code text-2xl text-yellow-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-3">Development</h3>
+                    <p class="text-gray-600">Agile development with bi-weekly demos and testing</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center hover-3d">
+                    <div class="w-20 h-20 bg-deep-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cloud-upload-alt text-2xl text-deep-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-3">Deployment & Support</h3>
+                    <p class="text-gray-600">App store submission, analytics, and ongoing maintenance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-deep-green mb-4">Our Mobile Technology Stack</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We use cutting-edge technologies to build performant, scalable mobile applications</p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8">
+                <div class="tech-icon flex flex-col items-center p-6 bg-gray-50 rounded-lg hover-3d">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift" class="h-16 w-16 mb-3">
+                    <span class="text-gray-700 font-medium">Swift</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-6 bg-gray-50 rounded-lg hover-3d">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" class="h-16 w-16 mb-3">
+                    <span class="text-gray-700 font-medium">Kotlin</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-6 bg-gray-50 rounded-lg hover-3d">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" class="h-16 w-16 mb-3">
+                    <span class="text-gray-700 font-medium">Flutter</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-6 bg-gray-50 rounded-lg hover-3d">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" class="h-16 w-16 mb-3">
+                    <span class="text-gray-700 font-medium">React Native</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-6 bg-gray-50 rounded-lg hover-3d">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" class="h-16 w-16 mb-3">
+                    <span class="text-gray-700 font-medium">Firebase</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-6 bg-gray-50 rounded-lg hover-3d">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="Apple" class="h-16 w-16 mb-3">
+                    <span class="text-gray-700 font-medium">iOS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Types -->
+    <section class="py-20 bg-gray-50" id="services">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-deep-green mb-4">Our Mobile App Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive mobile solutions tailored to your business needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="border border-gray-200 rounded-xl overflow-hidden hover-3d">
+                    <div class="bg-ios-blue text-white p-6">
+                        <h3 class="text-xl font-bold">iOS App Development</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">
+                            Native iOS applications built with Swift for optimal performance and user experience.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Swift & SwiftUI development</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>iPhone & iPad optimization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Apple Watch integration</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>App Store submission</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-ios-blue hover:text-primary-red font-medium inline-flex items-center">
+                            Get Started <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl overflow-hidden hover-3d">
+                    <div class="bg-android-green text-white p-6">
+                        <h3 class="text-xl font-bold">Android App Development</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">
+                            Native Android applications developed with Kotlin for seamless performance across devices.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Kotlin & Jetpack Compose</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Material Design implementation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Device compatibility testing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Play Store deployment</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-android-green hover:text-primary-red font-medium inline-flex items-center">
+                            Get Started <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl overflow-hidden hover-3d">
+                    <div class="bg-gradient-to-r from-ios-blue to-android-green text-white p-6">
+                        <h3 class="text-xl font-bold">Cross-Platform Development</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">
+                            Single codebase solutions with Flutter or React Native for both iOS and Android.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Flutter & React Native</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Cost-effective development</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Consistent UI across platforms</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Faster time-to-market</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-primary-red hover:text-orange-flame font-medium inline-flex items-center">
+                            Get Started <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Features -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-deep-green mb-4">Advanced Mobile Features</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We implement cutting-edge functionality to enhance your mobile app</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl hover-3d">
+                    <div class="w-12 h-12 bg-primary-red/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-fingerprint text-xl text-primary-red"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-2">Biometric Authentication</h3>
+                    <p class="text-gray-600">Secure login with Face ID, Touch ID, or fingerprint recognition</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl hover-3d">
+                    <div class="w-12 h-12 bg-orange-flame/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-xl text-orange-flame"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-2">Offline Functionality</h3>
+                    <p class="text-gray-600">Core features that work without internet connectivity</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl hover-3d">
+                    <div class="w-12 h-12 bg-yellow-gold/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-map-marked-alt text-xl text-yellow-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-2">Location Services</h3>
+                    <p class="text-gray-600">GPS tracking, geofencing, and location-based features</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl hover-3d">
+                    <div class="w-12 h-12 bg-deep-green/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-comment-dots text-xl text-deep-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-2">Push Notifications</h3>
+                    <p class="text-gray-600">Engage users with timely, personalized messages</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl hover-3d">
+                    <div class="w-12 h-12 bg-ios-blue/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-money-bill-wave text-xl text-ios-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-2">Mobile Payments</h3>
+                    <p class="text-gray-600">Secure in-app purchases and payment processing</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl hover-3d">
+                    <div class="w-12 h-12 bg-android-green/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-xl text-android-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-2">Analytics Integration</h3>
+                    <p class="text-gray-600">Track user behavior and app performance metrics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 bg-gray-50" id="pricing">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-deep-green mb-4">Mobile App Development Pricing</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Transparent pricing for our mobile app development services</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover-3d">
+                    <div class="p-6 border-b border-gray-200">
+                        <h3 class="text-xl font-bold text-deep-green mb-2">Basic App</h3>
+                        <div class="flex items-end mb-4">
+                            <span class="text-4xl font-bold">414,000 RWF</span>
+                            <span class="text-gray-500 ml-2">+</span>
+                        </div>
+                        <p class="text-gray-600">Simple mobile application with core features</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Single platform (iOS or Android)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>5-7 core features</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Basic UI/UX design</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Simple backend integration</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>8-10 weeks development</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block w-full bg-gray-100 hover:bg-primary-red hover:text-white text-center text-primary-red font-semibold py-3 px-6 rounded-lg transition-all duration-300">
+                            Choose Plan
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white border-2 border-primary-red rounded-xl overflow-hidden shadow-lg hover-3d transform hover:-translate-y-2">
+                    <div class="bg-primary-red text-white p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Business App</h3>
+                                <div class="flex items-end mb-4">
+                                    <span class="text-4xl font-bold">1,120,000 RWF</span>
+                                    <span class="ml-2">+</span>
+                                </div>
+                            </div>
+                            <span class="bg-white text-primary-red text-xs font-bold px-3 py-1 rounded-full">POPULAR</span>
+                        </div>
+                        <p class="text-white/90">Feature-rich mobile application for growing businesses</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Both iOS and Android platforms</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>10-15 advanced features</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Custom UI/UX design</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>API integrations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Admin dashboard</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>16-20 weeks development</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block w-full bg-primary-red hover:bg-orange-flame text-white text-center font-semibold py-3 px-6 rounded-lg transition-all duration-300">
+                            Choose Plan
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover-3d">
+                    <div class="p-6 border-b border-gray-200">
+                        <h3 class="text-xl font-bold text-deep-green mb-2">Enterprise App</h3>
+                        <div class="flex items-end mb-4">
+                            <span class="text-4xl font-bold">2,230,000 RWF</span>
+                            <span class="text-gray-500 ml-2">+</span>
+                        </div>
+                        <p class="text-gray-600">Complex mobile solution for large-scale businesses</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Multi-platform development</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Custom backend development</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Advanced security features</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Real-time functionality</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Scalable architecture</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>24+ weeks development</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block w-full bg-gray-100 hover:bg-primary-red hover:text-white text-center text-primary-red font-semibold py-3 px-6 rounded-lg transition-all duration-300">
+                            Choose Plan
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-4">Need something custom? We offer flexible solutions for all budgets.</p>
+                <a href="#contact" class="inline-flex items-center text-primary-red hover:text-orange-flame font-medium">
+                    <span>Request Custom Quote</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-sm font-semibold text-primary-red tracking-widest uppercase mb-2">Client Voices</h3>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark-bg mb-4">What Our Mobile Clients Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied clients</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl hover-3d">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark-bg">Marie U.</h4>
+                            <p class="text-sm text-gray-500">CEO, HealthTech Rwanda</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The mobile app Romin Digital developed for our health platform has been downloaded over 50,000 times. Their attention to user experience made all the difference in adoption rates."</p>
+                    <div class="flex text-yellow-gold">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl hover-3d">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark-bg">Thomas K.</h4>
+                            <p class="text-sm text-gray-500">CTO, FinTech Startup</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Our banking app developed by Romin Digital has maintained a 4.9-star rating with over 10,000 reviews. Their security implementation gave us and our customers complete confidence."</p>
+                    <div class="flex text-yellow-gold">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl hover-3d">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark-bg">Amina N.</h4>
+                            <p class="text-sm text-gray-500">Director, EduTech Rwanda</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The cross-platform educational app Romin built allowed us to reach both iOS and Android users with a single codebase, saving us significant development costs."</p>
+                    <div class="flex text-yellow-gold">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary-red to-orange-flame text-white" id="contact">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Build Your Mobile App?</h2>
+                <p class="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+                    Let's discuss your mobile app idea and how we can bring it to life.
+                </p>
+                
+                <div class="bg-white rounded-xl shadow-2xl p-8 text-left max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-deep-green mb-6">Get a Free Consultation</h3>
+                    
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="platform" class="block text-gray-700 font-medium mb-2">Target Platform(s)</label>
+                            <select id="platform" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent">
+                                <option value="">Select platform</option>
+                                <option value="ios">iOS Only</option>
+                                <option value="android">Android Only</option>
+                                <option value="both">Both iOS & Android</option>
+                                <option value="cross-platform">Cross-Platform</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Project Details</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-primary-red to-orange-flame text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-300">
+                            Submit Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deep-green text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="img/romin/log.png" alt="Romin Digital" class="w-10 h-10 mr-3">
+                        <div class="text-xl font-bold">
+                            <span class="text-primary-red">ROMIN</span>
+                            <span class="text-white">DIGITAL</span>
+                        </div>
+                    </div>
+                    <p class="text-white/70 mb-4">Shaping the Future of Digital Innovation across Africa and beyond.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white/70 hover:text-yellow-gold transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white/70 hover:text-yellow-gold transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white/70 hover:text-yellow-gold transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-white/70 hover:text-yellow-gold transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-white/70 hover:text-yellow-gold transition">Home</a></li>
+                        <li><a href="about.html" class="text-white/70 hover:text-yellow-gold transition">About Us</a></li>
+                        <li><a href="services.html" class="text-white/70 hover:text-yellow-gold transition">Services</a></li>
+                        <li><a href="training.html" class="text-white/70 hover:text-yellow-gold transition">Training</a></li>
+                        <li><a href="store.html" class="text-white/70 hover:text-yellow-gold transition">IT Store</a></li>
+                        <li><a href="contact.html" class="text-white/70 hover:text-yellow-gold transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="services.html#web-development" class="text-white/70 hover:text-yellow-gold transition">Web Development</a></li>
+                        <li><a href="services.html#mobile-development" class="text-white/70 hover:text-yellow-gold transition">Mobile Apps</a></li>
+                        <li><a href="services.html#cloud-services" class="text-white/70 hover:text-yellow-gold transition">Cloud Services</a></li>
+                        <li><a href="training.html" class="text-white/70 hover:text-yellow-gold transition">IT Training</a></li>
+                        <li><a href="store.html" class="text-white/70 hover:text-yellow-gold transition">IT Procurement</a></li>
+                        <li><a href="services.html#consultancy" class="text-white/70 hover:text-yellow-gold transition">IT Consultancy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-red"></i>
+                            <span class="text-white/70">Kigali, Kicukiro, RWANDA</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-primary-red"></i>
+                            <span class="text-white/70">+250 785 547 758</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary-red"></i>
+                            <span class="text-white/70">info@romindigital.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/20 text-center">
+                <p class="text-white/60">© 2025 Romin Digital Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary-red text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-orange-flame z-30">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('translate-x-full');
+        });
+        
+        document.getElementById('mobile-close').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('translate-x-full');
+        });
+
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.remove('opacity-100', 'visible');
+                backToTop.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        document.getElementById('back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Counter animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('[data-counter]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.dataset.counter);
+                        animateCounter(counter, target);
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => observer.observe(counter));
+        });
+
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 50);
+        }
+
+        // Animation for service cards
+        document.addEventListener('DOMContentLoaded', function() {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate service cards on scroll
+            gsap.utils.toArray('.hover-3d').forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top bottom-=100",
+                        toggleActions: "play none none none"
+                    },
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.8,
+                    delay: i * 0.1
+                });
+            });
+        });
+    </script>
+</body>
+</html>

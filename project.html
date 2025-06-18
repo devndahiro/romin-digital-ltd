@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our African Mobile Projects | Romin Digital</title>
+    <meta name="description" content="Explore our portfolio of mobile applications developed for African markets and users.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#D42E14',
+                        'secondary': '#F36A11',
+                        'accent': '#FFBC00',
+                        'dark': '#0A2C0D',
+                        'primary-red': '#D42E14',
+                        'orange-flame': '#F36A11',
+                        'yellow-gold': '#FFBC00',
+                        'deep-green': '#0A2C0D',
+                        'tagline-red': '#FF3C2A',
+                        'ios-blue': '#007AFF',
+                        'android-green': '#3DDC84'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #D42E14 0%, #F36A11 50%, #FFBC00 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hover-3d {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-3d:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .tech-icon {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #FFBC00;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-link {
+            transition: all 0.3s ease;
+        }
+        
+        .platform-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #0A2C0D;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .app-screen {
+            transition: all 0.5s ease;
+        }
+        
+        .app-screen:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Mobile menu show/hide */
+        #mobile-menu {
+            transform: translateX(100%);
+        }
+        
+        #mobile-menu.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-white font-sans antialiased">
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed top-0 left-0 w-full bg-deep-green/90 text-white py-3 backdrop-blur-xl transition-all duration-500 z-40 border-b border-white/5 shadow-2xl">
+        <div class="container mx-auto px-4 xl:px-12">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center group">
+                    <img src="img/romin/log.png" alt="Romin Digital Logo" class="w-12 h-12 mr-3 transition-transform duration-300 group-hover:rotate-6">
+                    <div class="text-xl font-bold nav-logo transition-all duration-500">
+                        <span class="text-primary-red">ROMIN</span>
+                        <span class="text-white">DIGITAL</span>
+                    </div>
+                    <span class="ml-2 text-xs text-tagline-red italic">Shaping the Future</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="index.html" class="nav-link hover:text-yellow-gold transition">Home</a>
+                    <a href="about.html" class="nav-link hover:text-yellow-gold transition">About</a>
+                    <a href="services.html" class="nav-link text-yellow-gold font-medium">Services</a>
+                    <a href="store.html" class="nav-link hover:text-yellow-gold transition">IT Store</a>
+                    <a href="training.html" class="nav-link hover:text-yellow-gold transition">Training</a>
+                    <a href="contact.html" class="nav-link hover:text-yellow-gold transition">Contact</a>
+                    <a href="blog.html" class="nav-link hover:text-yellow-gold transition">Blog</a>
+                    
+                    <!-- CTA Button -->
+                    <a href="contact.html" class="bg-primary-red hover:bg-orange-flame text-white px-6 py-2 rounded-full transition-all duration-300 hover:shadow-lg">
+                        Get Quote
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none">
+                    <div class="hamburger-icon">
+                        <span class="block w-6 h-0.5 bg-white mb-1 transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1 transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-deep-green/95 z-50 transition-transform duration-500 lg:hidden">
+        <div class="flex flex-col h-full">
+            <!-- Mobile Header -->
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div class="text-xl font-bold">
+                    <span class="text-primary-red">ROMIN</span>
+                    <span class="text-white">DIGITAL</span>
+                </div>
+                <button id="mobile-menu-close" class="text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Links -->
+            <div class="flex-1 flex flex-col justify-center px-6">
+                <a href="index.html" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition">Home</a>
+                <a href="about.html" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition">About</a>
+                <a href="services.html" class="mobile-link text-2xl font-medium text-yellow-gold py-4 border-b border-white/10">Services</a>
+                <a href="store.html" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition">IT Store</a>
+                <a href="training.html" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition">Training</a>
+                <a href="contact.html" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition">Contact</a>
+                <a href="blog.html" class="mobile-link text-2xl font-medium text-white py-4 hover:text-yellow-gold transition">Blog</a>
+            </div>
+            
+            <!-- Mobile CTA -->
+            <div class="p-6 border-t border-white/10">
+                <a href="contact.html" class="block w-full bg-primary-red hover:bg-orange-flame text-white text-center py-3 rounded-lg font-medium transition">
+                    Get Started Today
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Header -->
+    <section class="pt-32 pb-20 bg-gradient-to-r from-dark to-gray-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                Our <span class="gradient-text">African Mobile</span> Portfolio
+            </h1>
+            <p class="text-xl max-w-3xl mx-auto">
+                Explore our collection of mobile applications developed specifically for African markets and users.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Controls -->
+    <div class="bg-white py-8 shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn active px-6 py-2 rounded-full border border-gray-300 bg-primary text-white" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-gray-100" data-filter="ios">
+                    <i class="fab fa-apple mr-2"></i>iOS
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-gray-100" data-filter="android">
+                    <i class="fab fa-android mr-2"></i>Android
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-gray-100" data-filter="cross-platform">
+                    <i class="fas fa-mobile-alt mr-2"></i>Cross-Platform
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-gray-100" data-filter="fintech">
+                    <i class="fas fa-money-bill-wave mr-2"></i>FinTech
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:bg-gray-100" data-filter="healthtech">
+                    <i class="fas fa-heartbeat mr-2"></i>HealthTech
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300" data-platform="ios" data-category="fintech">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                             alt="M-Pesa Pro app" 
+                             class="w-full h-48 object-cover">
+                        <span class="platform-badge">iOS</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-dark">M-Pesa Pro</h3>
+                            <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">FinTech</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Advanced mobile banking solution for East African markets with M-Pesa integration</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-map-marker-alt mr-1"></i>
+                                <span>Kenya, Tanzania</span>
+                            </div>
+                            <a href="mpesa-pro-case-study.html" class="text-primary hover:text-secondary font-medium">
+                                View Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300" data-platform="android" data-category="healthtech">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                             alt="AfyaConnect app" 
+                             class="w-full h-48 object-cover">
+                        <span class="platform-badge">Android</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-dark">AfyaConnect</h3>
+                            <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">HealthTech</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Telemedicine platform connecting rural patients with doctors across Africa</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-map-marker-alt mr-1"></i>
+                                <span>Nigeria, Ghana</span>
+                            </div>
+                            <a href="afyaconnect-case-study.html" class="text-primary hover:text-secondary font-medium">
+                                View Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300" data-platform="cross-platform" data-category="edtech">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                             alt="EduAfrika app" 
+                             class="w-full h-48 object-cover">
+                        <span class="platform-badge">Cross-Platform</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-dark">EduAfrika</h3>
+                            <span class="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded">EdTech</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Educational app with localized content for 12 African countries</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-map-marker-alt mr-1"></i>
+                                <span>Pan-African</span>
+                            </div>
+                            <a href="eduafrika-case-study.html" class="text-primary hover:text-secondary font-medium">
+                                View Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300" data-platform="android" data-category="agritech">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                             alt="FarmConnect app" 
+                             class="w-full h-48 object-cover">
+                        <span class="platform-badge">Android</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-dark">FarmConnect</h3>
+                            <span class="text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded">AgriTech</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Marketplace connecting smallholder farmers with buyers across East Africa</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-map-marker-alt mr-1"></i>
+                                <span>Uganda, Rwanda</span>
+                            </div>
+                            <a href="farmconnect-case-study.html" class="text-primary hover:text-secondary font-medium">
+                                View Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300" data-platform="ios" data-category="ecommerce">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                             alt="SokoYetu app" 
+                             class="w-full h-48 object-cover">
+                        <span class="platform-badge">iOS</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-dark">SokoYetu</h3>
+                            <span class="text-sm bg-red-100 text-red-800 px-2 py-1 rounded">E-Commerce</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Artisan marketplace showcasing African crafts to global buyers</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-map-marker-alt mr-1"></i>
+                                <span>Kenya, South Africa</span>
+                            </div>
+                            <a href="sokoyetu-case-study.html" class="text-primary hover:text-secondary font-medium">
+                                View Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300" data-platform="cross-platform" data-category="transport">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1464863979621-258859e62245?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                             alt="SafeJourney app" 
+                             class="w-full h-48 object-cover">
+                        <span class="platform-badge">Cross-Platform</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-dark">SafeJourney</h3>
+                            <span class="text-sm bg-indigo-100 text-indigo-800 px-2 py-1 rounded">Transport</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Public transport safety app with real-time alerts for Nigerian commuters</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-map-marker-alt mr-1"></i>
+                                <span>Nigeria</span>
+                            </div>
+                            <a href="safejourney-case-study.html" class="text-primary hover:text-secondary font-medium">
+                                View Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <nav class="flex items-center space-x-2">
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100" id="prev-page">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#" class="px-4 py-2 border border-primary bg-primary text-white rounded-md page-link active">1</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 page-link">2</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 page-link">3</a>
+                    <span class="px-4 py-2">...</span>
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 page-link">8</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100" id="next-page">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Have a Mobile Project for Africa?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Let's discuss how we can bring your mobile app idea to life across the continent.
+            </p>
+            <a href="contact.html" class="inline-block bg-white text-primary font-semibold px-8 py-3 rounded-lg hover:shadow-lg transition">
+                Get in Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ROMIN DIGITAL</h3>
+                    <p class="mb-4">Building digital solutions for Africa's future.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-accent text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-accent text-xl"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-white hover:text-accent text-xl"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-accent">Mobile Development</a></li>
+                        <li><a href="#" class="hover:text-accent">Web Development</a></li>
+                        <li><a href="#" class="hover:text-accent">UI/UX Design</a></li>
+                        <li><a href="#" class="hover:text-accent">Digital Strategy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Locations</h4>
+                    <ul class="space-y-2">
+                        <li>Kigali, Rwanda</li>
+                        <li>Nairobi, Kenya</li>
+                        <li>Lagos, Nigeria</li>
+                        <li>Cape Town, South Africa</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>+250 785 547 758</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>info@romindigital.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/20 text-center">
+                <p>© 2023 Romin Digital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all hover:bg-secondary">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Project Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projects = document.querySelectorAll('.project-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary', 'text-white');
+                    btn.classList.add('border', 'border-gray-300', 'hover:bg-gray-100');
+                });
+                
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('border', 'border-gray-300', 'hover:bg-gray-100');
+                
+                // Filter projects
+                const filterValue = this.getAttribute('data-filter');
+                
+                projects.forEach(project => {
+                    if (filterValue === 'all') {
+                        project.style.display = 'block';
+                    } else {
+                        const platformMatch = project.getAttribute('data-platform') === filterValue;
+                        const categoryMatch = project.getAttribute('data-category') === filterValue;
+                        
+                        if (platformMatch || categoryMatch) {
+                            project.style.display = 'block';
+                        } else {
+                            project.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Pagination
+        const pageLinks = document.querySelectorAll('.page-link');
+        const prevPage = document.getElementById('prev-page');
+        const nextPage = document.getElementById('next-page');
+        
+        pageLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active page
+                pageLinks.forEach(l => {
+                    l.classList.remove('active', 'bg-primary', 'text-white', 'border-primary');
+                    l.classList.add('border-gray-300', 'hover:bg-gray-100');
+                });
+                
+                this.classList.add('active', 'bg-primary', 'text-white', 'border-primary');
+                this.classList.remove('border-gray-300', 'hover:bg-gray-100');
+                
+                // In a real implementation, you would load the new page content here
+                console.log('Loading page', this.textContent);
+            });
+        });
+        
+        prevPage.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Previous page clicked');
+            // Implement previous page logic
+        });
+        
+        nextPage.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Next page clicked');
+            // Implement next page logic
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

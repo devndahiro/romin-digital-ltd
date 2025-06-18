@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Store - Romin Digital Ltd. | Premium Technology Equipment</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Shop premium IT equipment at Romin Digital Store. Laptops, desktops, servers, networking equipment, software licenses, and accessories from trusted brands.">
+    <meta name="keywords" content="IT store Rwanda, computer shop, laptops, servers, networking equipment, software licenses, technology hardware Africa">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-red': '#D42E14',
+                        'orange-flame': '#F36A11',
+                        'yellow-gold': '#FFBC00',
+                        'deep-green': '#0A2C0D',
+                        'tagline-red': '#FF3C2A',
+                        'surface': '#F8FAFC',
+                        'surface-dark': '#F1F5F9',
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 8s ease infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s ease-in-out infinite',
+                        'fadeIn': 'fadeIn 0.5s ease-out',
+                        'slideUp': 'slideUp 0.6s ease-out',
+                        'scaleIn': 'scaleIn 0.4s ease-out',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        'fadeIn': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        'slideUp': {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        'scaleIn': {
+                            '0%': { opacity: '0', transform: 'scale(0.8)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        }
+                    },
+                    boxShadow: {
+                        'product': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                        'product-hover': '0 20px 40px rgba(0, 0, 0, 0.15)',
+                        'glass': '0 8px 32px rgba(0, 0, 0, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom CSS for premium effects */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #D42E14 0%, #F36A11 50%, #FFBC00 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 300% 300%;
+            animation: gradient-x 6s ease infinite;
+        }
+        
+        .hover-3d {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-3d:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: rgba(212, 46, 20, 0.1);
+        }
+        
+        .product-card .product-image {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+        
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 46, 20, 0.9), rgba(243, 106, 17, 0.9));
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+        
+        .category-filter {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-filter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .category-filter:hover::before {
+            left: 100%;
+        }
+        
+        .category-filter.active {
+            background: linear-gradient(135deg, #D42E14, #F36A11);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(212, 46, 20, 0.3);
+        }
+        
+        .price-badge {
+            background: linear-gradient(135deg, #D42E14, #F36A11);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .stock-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .in-stock {
+            background: rgba(16, 185, 129, 0.9);
+            color: white;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .low-stock {
+            background: rgba(245, 158, 11, 0.9);
+            color: white;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        
+        .out-of-stock {
+            background: rgba(239, 68, 68, 0.9);
+            color: white;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .filter-sidebar {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .filter-sidebar.hidden {
+            transform: translateX(-100%);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+        
+        .rating-stars {
+            color: #FFBC00;
+            display: flex;
+            gap: 2px;
+        }
+        
+        .brand-logo {
+            filter: grayscale(80%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.7;
+        }
+        
+        .brand-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            max-height: 350px;
+            overflow-y: auto;
+            z-index: 50;
+            display: none;
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        .search-item {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f3f4f6;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .search-item:hover {
+            background: #f8fafc;
+            transform: translateX(4px);
+        }
+        
+        .search-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Compact Hero section */
+        .hero-bg {
+            background: linear-gradient(rgba(10, 44, 13, 0.9), rgba(10, 44, 13, 0.9)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 20vh;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 46, 20, 0.1) 0%, transparent 70%);
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        /* Compact hero styles */
+        .compact-hero {
+            padding: 1.5rem 0 1rem;
+        }
+
+        .offers-strip {
+            background: linear-gradient(135deg, rgba(212, 46, 20, 0.95), rgba(243, 106, 17, 0.95));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-float {
+            opacity: 0.4;
+        }
+
+        /* Quick category icons */
+        .quick-cat-icon {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .quick-cat-icon:hover {
+            transform: scale(1.05) translateY(-1px);
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Promotional banners */
+        .promo-banner {
+            background: linear-gradient(135deg, #D42E14 0%, #F36A11 50%, #FFBC00 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Interactive offer cards */
+        .offer-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .offer-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Compact hero text */
+        .hero-title {
+            font-size: 1.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Loading states */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #D42E14, #F36A11);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #B91C1C, #C2410C);
+        }
+
+        /* Enhanced input focus states */
+        .enhanced-input:focus {
+            outline: none;
+            border-color: #D42E14;
+            box-shadow: 0 0 0 3px rgba(212, 46, 20, 0.1);
+        }
+
+        /* Toast notifications */
+        .toast {
+            background: linear-gradient(135deg, #D42E14, #F36A11);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(212, 46, 20, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 400px;
+        }
+
+        /* New compact filter styles */
+        .compact-filter-section {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9));
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .filter-toggle-btn {
+            background: linear-gradient(135deg, #D42E14, #F36A11);
+            color: white;
+            border-radius: 9999px;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .filter-toggle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .filter-toggle-btn i {
+            transition: transform 0.2s ease;
+        }
+
+        .filter-toggle-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        .filter-group {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .filter-group-title {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .filter-group-title:hover {
+            color: #D42E14;
+        }
+
+        .filter-group-content {
+            transition: max-height 0.3s ease, opacity 0.2s ease;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .filter-sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 300px;
+                z-index: 100;
+                overflow-y: auto;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .filter-sidebar.active {
+                transform: translateX(0);
+            }
+
+            .filter-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 99;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease;
+            }
+
+            .filter-overlay.active {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface font-sans antialiased overflow-x-hidden">
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed top-0 left-0 w-full bg-deep-green/90 text-white py-3 backdrop-blur-xl transition-all duration-500 z-50 border-b border-white/5 shadow-2xl">
+        <div class="container mx-auto px-4 xl:px-12">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center group">
+                    <img src="img/romin/log.png" alt="Romin Digital Logo" class="w-12 h-12 mr-3 transition-transform duration-300 group-hover:rotate-6">
+                    <div class="text-xl font-bold nav-logo transition-all duration-500">
+                        <span class="text-primary-red">ROMIN</span>
+                        <span class="text-white">DIGITAL</span>
+                    </div>
+                    <span class="ml-2 text-xs text-tagline-red italic">Shaping the Future</span>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="hidden lg:flex flex-1 max-w-2xl mx-8">
+                    <div class="search-container w-full">
+                        <div class="relative">
+                            <input 
+                                type="text" 
+                                id="product-search" 
+                                placeholder="Search for products, brands, categories..." 
+                                class="w-full pl-12 pr-4 py-3 rounded-xl border border-white/20 enhanced-input focus:border-primary-red transition-all duration-300 bg-white/10 backdrop-blur-sm text-white placeholder-white/70"
+                            >
+                            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-white/70"></i>
+                        </div>
+                        <div id="search-results" class="search-results"></div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="index.html" class="nav-link text-white hover:text-yellow-gold transition">Home</a>
+                    <a href="about.html" class="nav-link text-white hover:text-yellow-gold transition">About</a>
+                    <a href="services.html" class="nav-link text-white hover:text-yellow-gold transition">Services</a>
+                    <a href="store.html" class="nav-link text-yellow-gold font-medium">IT Store</a>
+                    <a href="training.html" class="nav-link text-white hover:text-yellow-gold transition">Training</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-yellow-gold transition">Contact</a>
+                    <a href="blog.html" class="nav-link text-white hover:text-yellow-gold transition">Blog</a>
+                    
+                    <!-- Cart Icon -->
+                    <button id="cart-toggle" class="cart-icon relative p-2 hover:bg-white/10 rounded-lg transition-colors duration-300">
+                        <i class="fas fa-shopping-cart text-xl text-white"></i>
+                        <span class="cart-count hidden" id="cart-count">0</span>
+                    </button>
+                    
+                    <!-- CTA Button -->
+                    <a href="contact.html" class="bg-primary-red hover:bg-orange-flame text-white px-6 py-2 rounded-full transition-all duration-300 hover:shadow-lg">
+                        Get Quote
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none">
+                    <div class="hamburger-icon">
+                        <span class="block w-6 h-0.5 bg-white mb-1 transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1 transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-white transition-all"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-deep-green/95 backdrop-blur-xl z-50 transform translate-x-full transition-transform duration-500 lg:hidden">
+        <div class="flex flex-col h-full">
+            <!-- Mobile Header -->
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div class="text-xl font-bold">
+                    <span class="text-primary-red">ROMIN</span>
+                    <span class="text-white">DIGITAL</span>
+                </div>
+                <button id="mobile-close" class="text-white text-2xl p-2">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Search -->
+            <div class="p-6 border-b border-white/10">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        placeholder="Search products..." 
+                        class="w-full pl-12 pr-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white placeholder-white/70 focus:bg-white/20 transition-all"
+                    >
+                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-white/70"></i>
+                </div>
+            </div>
+            
+            <!-- Mobile Links -->
+            <div class="flex-1 flex flex-col justify-center px-6">
+                <a href="#" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition-colors">Home</a>
+                <a href="#" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition-colors">About</a>
+                <a href="#" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition-colors">Services</a>
+                <a href="#" class="mobile-link text-2xl font-medium text-yellow-gold py-4 border-b border-white/10 font-semibold">IT Store</a>
+                <a href="#" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition-colors">Training</a>
+                <a href="#" class="mobile-link text-2xl font-medium text-white py-4 border-b border-white/10 hover:text-yellow-gold transition-colors">Contact</a>
+            </div>
+            
+            <!-- Mobile CTA -->
+            <div class="p-6 border-t border-white/10">
+                <button id="mobile-cart" class="w-full bg-white/20 text-white py-3 rounded-lg font-medium transition-colors hover:bg-white/30 mb-4">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    Cart (<span id="mobile-cart-count">0</span>)
+                </button>
+                <a href="#" class="block w-full bg-gradient-to-r from-primary-red to-orange-flame text-white text-center py-3 rounded-lg font-semibold transition-all hover:shadow-lg">
+                    Get Started Today
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compact Hero Section with new background image -->
+    <section class="hero-bg compact-hero relative">
+        <!-- Floating Tech Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="tech-float absolute top-16 left-8 w-8 h-8 bg-yellow-gold/20 rounded-lg animate-float" style="animation-delay: 0s;">
+                <i class="fas fa-laptop text-yellow-gold text-sm absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+            </div>
+            <div class="tech-float absolute top-20 right-16 w-6 h-6 bg-primary-red/20 rounded-full animate-float" style="animation-delay: 1s;">
+                <i class="fas fa-server text-primary-red text-xs absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+            </div>
+            <div class="tech-float absolute bottom-12 left-1/4 w-7 h-7 bg-orange-flame/20 rounded-lg animate-float" style="animation-delay: 2s;">
+                <i class="fas fa-network-wired text-orange-flame text-xs absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-5xl mx-auto text-center text-white">
+                <!-- Main Headline -->
+                <h1 class="hero-title font-bold mb-2 leading-tight">
+                    Your Complete <span class="gradient-text">IT Solutions</span> Hub
+                </h1>
+                
+                <!-- Tagline -->
+                <p class="hero-subtitle mb-3 text-white/90 max-w-2xl mx-auto">
+                    Premium hardware, expert support, enterprise solutions - all in one place
+                </p>
+
+                <!-- Special Offers Strip -->
+                <div class="offers-strip rounded-xl p-2 mb-3 mx-auto max-w-3xl cursor-pointer hover:scale-105 transition-all duration-300" onclick="scrollToProducts()">
+                    <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-2">
+                        <div class="flex flex-wrap items-center gap-2 justify-center md:justify-start">
+                            <span class="bg-yellow-gold text-deep-green px-2 py-1 rounded-full text-xs font-bold hover:scale-110 transition-transform cursor-pointer" onclick="event.stopPropagation(); filterByCategory('servers')">🔥 25% OFF Servers</span>
+                            <span class="bg-white/20 px-2 py-1 rounded-full text-xs hover:bg-white/30 transition-colors cursor-pointer" onclick="event.stopPropagation(); showInstallationInfo()">Free Setup</span>
+                            <span class="bg-white/20 px-2 py-1 rounded-full text-xs hover:bg-white/30 transition-colors cursor-pointer" onclick="event.stopPropagation(); showDeliveryInfo()">Fast Delivery</span>
+                        </div>
+                        <div class="text-yellow-gold font-bold text-sm animate-pulse">
+                            Limited Time!
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Category Access -->
+                <div class="grid grid-cols-3 md:grid-cols-6 gap-2 mb-3 max-w-3xl mx-auto">
+                    <div class="quick-cat-icon text-center group cursor-pointer" onclick="filterByCategory('laptops')">
+                        <div class="w-8 h-8 bg-white/15 rounded-lg flex items-center justify-center mx-auto mb-1 group-hover:bg-yellow-gold/25 transition-all duration-300">
+                            <i class="fas fa-laptop text-white group-hover:text-yellow-gold text-xs"></i>
+                        </div>
+                        <div class="text-xs font-medium">Laptops</div>
+                    </div>
+                    <div class="quick-cat-icon text-center group cursor-pointer" onclick="filterByCategory('servers')">
+                        <div class="w-8 h-8 bg-white/15 rounded-lg flex items-center justify-center mx-auto mb-1 group-hover:bg-primary-red/25 transition-all duration-300">
+                            <i class="fas fa-server text-white group-hover:text-primary-red text-xs"></i>
+                        </div>
+                        <div class="text-xs font-medium">Servers</div>
+                    </div>
+                    <div class="quick-cat-icon text-center group cursor-pointer" onclick="filterByCategory('networking')">
+                        <div class="w-8 h-8 bg-white/15 rounded-lg flex items-center justify-center mx-auto mb-1 group-hover:bg-orange-flame/25 transition-all duration-300">
+                            <i class="fas fa-network-wired text-white group-hover:text-orange-flame text-xs"></i>
+                        </div>
+                        <div class="text-xs font-medium">Network</div>
+                    </div>
+                    <div class="quick-cat-icon text-center group cursor-pointer" onclick="filterByCategory('desktops')">
+                        <div class="w-8 h-8 bg-white/15 rounded-lg flex items-center justify-center mx-auto mb-1 group-hover:bg-green-400/25 transition-all duration-300">
+                            <i class="fas fa-desktop text-white group-hover:text-green-400 text-xs"></i>
+                        </div>
+                        <div class="text-xs font-medium">Desktops</div>
+                    </div>
+                    <div class="quick-cat-icon text-center group cursor-pointer" onclick="filterByCategory('software')">
+                        <div class="w-8 h-8 bg-white/15 rounded-lg flex items-center justify-center mx-auto mb-1 group-hover:bg-blue-400/25 transition-all duration-300">
+                            <i class="fas fa-code text-white group-hover:text-blue-400 text-xs"></i>
+                        </div>
+                        <div class="text-xs font-medium">Software</div>
+                    </div>
+                    <div class="quick-cat-icon text-center group cursor-pointer" onclick="filterByCategory('accessories')">
+                        <div class="w-8 h-8 bg-white/15 rounded-lg flex items-center justify-center mx-auto mb-1 group-hover:bg-purple-400/25 transition-all duration-300">
+                            <i class="fas fa-plug text-white group-hover:text-purple-400 text-xs"></i>
+                        </div>
+                        <div class="text-xs font-medium">Accessories</div>
+                    </div>
+                </div>
+                
+                <!-- Call to Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-2 justify-center mb-2">
+                    <button onclick="scrollToProducts()" class="bg-white text-deep-green font-bold py-2 px-6 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm">
+                        <i class="fas fa-shopping-bag mr-2"></i>
+                        Shop Now - Free Shipping
+                    </button>
+                    <a href="tel:+250785547758" class="border-2 border-white text-white font-bold py-2 px-6 rounded-lg hover:bg-white hover:text-deep-green transition-all duration-300 transform hover:scale-105 text-center text-sm">
+                        <i class="fas fa-phone mr-2"></i>
+                        Call for Quote
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="text-center">
+                    <div class="flex justify-center items-center space-x-4 text-white/70 text-xs">
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-gold mr-1 text-xs"></i>
+                            <span>4.9/5</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-users text-green-400 mr-1 text-xs"></i>
+                            <span>39+ Companies</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-shield-check text-blue-400 mr-1 text-xs"></i>
+                            <span>Certified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="py-4 bg-gradient-to-r from-primary-red via-orange-flame to-yellow-gold relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Scrolling Announcements -->
+            <div class="flex items-center justify-center text-white">
+                <div class="flex items-center space-x-8 animate-marquee">
+                    <div class="flex items-center whitespace-nowrap">
+                        <i class="fas fa-bolt text-yellow-gold mr-2"></i>
+                        <span class="font-bold">FLASH SALE: 30% OFF Dell Servers - Ends Tonight!</span>
+                    </div>
+                    <div class="flex items-center whitespace-nowrap">
+                        <i class="fas fa-gift text-white mr-2"></i>
+                        <span class="font-bold">FREE Microsoft Office with Every Laptop Purchase</span>
+                    </div>
+                    <div class="flex items-center whitespace-nowrap">
+                        <i class="fas fa-truck text-yellow-gold mr-2"></i>
+                        <span class="font-bold">Same-Day Delivery in Kigali - Order Before 2PM</span>
+                    </div>
+                    <div class="flex items-center whitespace-nowrap">
+                        <i class="fas fa-tools text-white mr-2"></i>
+                        <span class="font-bold">FREE Setup & Installation on Orders Over $1000</span>
+                    </div>
+                    <div class="flex items-center whitespace-nowrap">
+                        <i class="fas fa-certificate text-yellow-gold mr-2"></i>
+                        <span class="font-bold">Authorized Partner: Dell, HP, Cisco, Lenovo & Microsoft</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Offers Strip - Compact Version -->
+    <section class="py-3 bg-deep-green/5">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Special Deal -->
+                <div class="offer-card bg-gradient-to-r from-primary-red to-orange-flame rounded-lg p-4 text-white cursor-pointer hover:scale-105 transition-all duration-300 group" onclick="filterByCategory('servers')">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-yellow-gold font-bold text-sm mb-1">⚡ SERVER DEAL</div>
+                            <div class="text-xs">25% OFF Enterprise Servers</div>
+                            <div class="text-xs opacity-80">Dell PowerEdge & HP ProLiant</div>
+                        </div>
+                        <div class="text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fas fa-server"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bundle Offer -->
+                <div class="offer-card bg-gradient-to-r from-deep-green to-emerald-600 rounded-lg p-4 text-white cursor-pointer hover:scale-105 transition-all duration-300 group" onclick="showBundleOffers()">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-yellow-gold font-bold text-sm mb-1">💼 BUNDLE DEALS</div>
+                            <div class="text-xs">Complete Office Solutions</div>
+                            <div class="text-xs opacity-80">Laptop + Software + Setup</div>
+                        </div>
+                        <div class="text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Offer -->
+                <div class="offer-card bg-gradient-to-r from-orange-flame to-yellow-gold rounded-lg p-4 text-white cursor-pointer hover:scale-105 transition-all duration-300 group" onclick="showSupportInfo()">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-deep-green font-bold text-sm mb-1">🛠️ FREE SUPPORT</div>
+                            <div class="text-xs text-deep-green">24/7 Technical Assistance</div>
+                            <div class="text-xs text-deep-green/80">1 Year Included Support</div>
+                        </div>
+                        <div class="text-2xl group-hover:scale-110 transition-transform text-deep-green">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compact Filter Section -->
+    <section class="py-4 bg-white/80 backdrop-blur-sm sticky top-24 z-30 border-b border-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <button id="filter-toggle" class="filter-toggle-btn flex items-center gap-2 lg:hidden">
+                        <i class="fas fa-filter"></i>
+                        <span>Filters</span>
+                    </button>
+                    <h2 class="text-xl font-bold text-deep-green">IT Equipment Catalog</h2>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <label class="text-gray-700 font-medium hidden md:block">Sort by:</label>
+                    <select class="border-2 border-gray-200 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-red focus:border-primary-red enhanced-input bg-white text-sm" id="sort-select">
+                        <option value="name">Name A-Z</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section with Improved Filter Sidebar -->
+    <section id="products" class="py-12 bg-surface">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Filter Sidebar - Improved for Mobile -->
+                <div class="lg:w-1/4 relative">
+                    <!-- Mobile Filter Overlay -->
+                    <div id="filter-overlay" class="filter-overlay lg:hidden"></div>
+                    
+                    <!-- Filter Sidebar Content -->
+                    <div id="filter-sidebar" class="filter-sidebar lg:sticky lg:top-32 lg:h-[calc(100vh-8rem)] lg:overflow-y-auto">
+                        <div class="bg-white rounded-2xl p-6 shadow-glass">
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="text-xl font-bold text-deep-green">Filters</h3>
+                                <button id="close-filters" class="lg:hidden text-gray-500 hover:text-primary-red">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Category Filter - Compact -->
+                            <div class="mb-6">
+                                <h4 class="font-semibold text-deep-green mb-3 flex items-center justify-between">
+                                    <span>Categories</span>
+                                </h4>
+                                <div class="flex flex-wrap gap-2" id="category-filters-container">
+                                    <button class="category-filter active px-4 py-2 rounded-full bg-primary-red text-white font-medium hover:shadow-lg transition-all duration-300 text-sm" data-category="all">
+                                        All
+                                    </button>
+                                    <button class="category-filter px-4 py-2 rounded-full bg-white border border-gray-200 text-deep-green font-medium hover:shadow-lg transition-all duration-300 text-sm" data-category="laptops">
+                                        Laptops
+                                    </button>
+                                    <button class="category-filter px-4 py-2 rounded-full bg-white border border-gray-200 text-deep-green font-medium hover:shadow-lg transition-all duration-300 text-sm" data-category="desktops">
+                                        Desktops
+                                    </button>
+                                    <button class="category-filter px-4 py-2 rounded-full bg-white border border-gray-200 text-deep-green font-medium hover:shadow-lg transition-all duration-300 text-sm" data-category="servers">
+                                        Servers
+                                    </button>
+                                    <button class="category-filter px-4 py-2 rounded-full bg-white border border-gray-200 text-deep-green font-medium hover:shadow-lg transition-all duration-300 text-sm" data-category="networking">
+                                        Networking
+                                    </button>
+                                    <button class="category-filter px-4 py-2 rounded-full bg-white border border-gray-200 text-deep-green font-medium hover:shadow-lg transition-all duration-300 text-sm" data-category="accessories">
+                                        Accessories
+                                    </button>
+                                    <button class="category-filter px-4 py-2 rounded-full bg-white border border-gray-200 text-deep-green font-medium hover:shadow-lg transition-all duration-300 text-sm" data-category="software">
+                                        Software
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Price Range - Collapsible -->
+                            <div class="filter-group mb-6">
+                                <div class="filter-group-title flex items-center justify-between cursor-pointer">
+                                    <h4 class="font-semibold text-deep-green">Price Range</h4>
+                                    <i class="fas fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                                </div>
+                                <div class="filter-group-content mt-3">
+                                    <div class="space-y-2">
+                                        <label class="flex items-center group cursor-pointer">
+                                            <input type="checkbox" class="price-filter mr-3 w-5 h-5 text-primary-red rounded focus:ring-primary-red" data-min="0" data-max="500">
+                                            <span class="text-gray-700 group-hover:text-primary-red transition-colors text-sm">Under $500</span>
+                                        </label>
+                                        <label class="flex items-center group cursor-pointer">
+                                            <input type="checkbox" class="price-filter mr-3 w-5 h-5 text-primary-red rounded focus:ring-primary-red" data-min="500" data-max="1000">
+                                            <span class="text-gray-700 group-hover:text-primary-red transition-colors text-sm">$500 - $1,000</span>
+                                        </label>
+                                        <label class="flex items-center group cursor-pointer">
+                                            <input type="checkbox" class="price-filter mr-3 w-5 h-5 text-primary-red rounded focus:ring-primary-red" data-min="1000" data-max="2000">
+                                            <span class="text-gray-700 group-hover:text-primary-red transition-colors text-sm">$1,000 - $2,000</span>
+                                        </label>
+                                        <label class="flex items-center group cursor-pointer">
+                                            <input type="checkbox" class="price-filter mr-3 w-5 h-5 text-primary-red rounded focus:ring-primary-red" data-min="2000" data-max="999999">
+                                            <span class="text-gray-700 group-hover:text-primary-red transition-colors text-sm">Over $2,000</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Brands - Collapsible -->
+                            <div class="filter-group mb-6">
+                                <div class="filter-group-title flex items-center justify-between cursor-pointer">
+                                    <h4 class="font-semibold text-deep-green">Brands</h4>
+                                    <i class="fas fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                                </div>
+                                <div class="filter-group-content mt-3">
+                                    <div class="space-y-2">
+                                        <label class="flex items-center group cursor-pointer">
+                                            <input type="checkbox" class="brand-filter mr-3 w-5 h-5 text-primary-red rounded focus:ring-primary-red" data-brand="dell">
+                                            <span class="text-gray-700 group-hover:text-primary-red transition-colors text-sm">Dell</span>
+                                        </label>
+                                        <label class="flex items-center group cursor-pointer">
+                                            <input type="checkbox" class="brand-filter mr-3 w-5 h-5 text-primary-red rounded focus:ring-primary-red" data-brand="hp">
+                                            <span class="text-gray-700 group-hover:text-primary-red transition-colors text-sm">HP</span>
+                                        </label>
+                                        <label class="flex items-center group cursor-pointer">
+                                            <input type="checkbox" class="brand-filter mr-3 w-5 h-5 text-primary-red rounded focus:ring-primary-red" data-brand="lenovo">
+                                            <span class="text-gray-700 group-hover:text-primary-red transition-colors text-sm">Lenovo</span>
+                                        </label>
+                                        <label class="flex items-center group cursor-pointer">
+                                            <input type="checkbox" class="brand-filter mr-3 w-5 h-5 text-primary-red rounded focus:ring-primary-red" data-brand="cisco">
+                                            <span class="text-gray-700 group-hover:text-primary-red transition-colors text-sm">Cisco</span>
+                                        </label>
+                                        <label class="flex items-center group cursor-pointer">
+                                            <input type="checkbox" class="brand-filter mr-3 w-5 h-5 text-primary-red rounded focus:ring-primary-red" data-brand="microsoft">
+                                            <span class="text-gray-700 group-hover:text-primary-red transition-colors text-sm">Microsoft</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Availability - Collapsible -->
+                            <div class="filter-group mb-6">
+                                <div class="filter-group-title flex items-center justify-between cursor-pointer">
+                                    <h4 class="font-semibold text-deep-green">Availability</h4>
+                                    <i class="fas fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                                </div>
+                                <div class="filter-group-content mt-3">
+                                    <div class="space-y-2">
+                                        <label class="flex items-center group cursor-pointer">
+                                            <input type="checkbox" class="stock-filter mr-3 w-5 h-5 text-primary-red rounded focus:ring-primary-red" data-stock="in-stock">
+                                            <span class="text-gray-700 group-hover:text-primary-red transition-colors text-sm">In Stock</span>
+                                        </label>
+                                        <label class="flex items-center group cursor-pointer">
+                                            <input type="checkbox" class="stock-filter mr-3 w-5 h-5 text-primary-red rounded focus:ring-primary-red" data-stock="low-stock">
+                                            <span class="text-gray-700 group-hover:text-primary-red transition-colors text-sm">Limited Stock</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="w-full bg-gradient-to-r from-primary-red to-orange-flame text-white py-3 rounded-xl hover:from-orange-flame hover:to-yellow-gold transition-all duration-300 font-bold transform hover:scale-105 shadow-lg text-sm" id="clear-filters">
+                                <i class="fas fa-times mr-2"></i>
+                                Clear All Filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="lg:w-3/4">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                        <div>
+                            <p class="text-gray-600 text-sm" id="product-count">Showing all products</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <label class="text-gray-700 font-medium text-sm md:hidden">Sort:</label>
+                            <select class="border-2 border-gray-200 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-red focus:border-primary-red enhanced-input bg-white text-sm md:hidden" id="mobile-sort-select">
+                                <option value="name">Name A-Z</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Highest Rated</option>
+                                <option value="newest">Newest First</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="product-grid" id="products-container">
+                        <!-- Products will be dynamically loaded here -->
+                    </div>
+                    
+                    <!-- Load More Button -->
+                    <div class="text-center mt-12">
+                        <button class="bg-gradient-to-r from-primary-red to-orange-flame text-white px-8 py-3 rounded-xl hover:from-orange-flame hover:to-yellow-gold transition-all duration-300 font-bold text-sm transform hover:scale-105 shadow-lg" id="load-more">
+                            <i class="fas fa-plus mr-2"></i>
+                            Load More Products
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Brands -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-deep-green mb-4">Trusted by Leading Brands</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We partner with the world's top technology brands to bring you premium products</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+                <div class="brand-logo p-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Dell_logo_2016.svg/1200px-Dell_logo_2016.svg.png" alt="Dell" class="h-12 mx-auto">
+                </div>
+                <div class="brand-logo p-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/1200px-HP_logo_2012.svg.png" alt="HP" class="h-12 mx-auto">
+                </div>
+                <div class="brand-logo p-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Lenovo_logo_2015.svg/1200px-Lenovo_logo_2015.svg.png" alt="Lenovo" class="h-12 mx-auto">
+                </div>
+                <div class="brand-logo p-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Cisco_logo.svg/1200px-Cisco_logo.svg.png" alt="Cisco" class="h-12 mx-auto">
+                </div>
+                <div class="brand-logo p-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1200px-Microsoft_logo_%282012%29.svg.png" alt="Microsoft" class="h-12 mx-auto">
+                </div>
+                <div class="brand-logo p-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1200px-IBM_logo.svg.png" alt="IBM" class="h-12 mx-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Our Store -->
+    <section class="py-20 bg-surface">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-deep-green mb-4">Why Choose Romin Digital?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We go beyond just selling products to provide complete IT solutions</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-product hover:shadow-product-hover transition-all duration-300 hover-3d">
+                    <div class="w-16 h-16 bg-primary-red/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-primary-red text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-3">Genuine Products</h3>
+                    <p class="text-gray-600">All our products are 100% authentic with manufacturer warranties</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-product hover:shadow-product-hover transition-all duration-300 hover-3d">
+                    <div class="w-16 h-16 bg-orange-flame/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-orange-flame text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-3">Expert Support</h3>
+                    <p class="text-gray-600">Dedicated technical support team available 24/7</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-product hover:shadow-product-hover transition-all duration-300 hover-3d">
+                    <div class="w-16 h-16 bg-yellow-gold/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-truck text-yellow-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-3">Fast Delivery</h3>
+                    <p class="text-gray-600">Same-day delivery in Kigali, nationwide within 48 hours</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-product hover:shadow-product-hover transition-all duration-300 hover-3d">
+                    <div class="w-16 h-16 bg-deep-green/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-deep-green text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-3">Custom Solutions</h3>
+                    <p class="text-gray-600">Tailored IT solutions for businesses of all sizes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary-red to-orange-flame text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your IT Infrastructure?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Contact our experts today for a free consultation and quote</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+250785547758" class="bg-white text-deep-green font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-phone mr-2"></i>
+                    Call Now: +250 785 547 758
+                </a>
+                <a href="mailto:sales@romindigital.com" class="border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Email Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deep-green text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="img/romin/log.png" alt="Romin Digital Logo" class="w-10 h-10 mr-3">
+                        <div class="text-xl font-bold">
+                            <span class="text-primary-red">ROMIN</span>
+                            <span class="text-white">DIGITAL</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Shaping the future of technology in Rwanda and beyond</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">Services</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">IT Store</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">Training</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">IT Consulting</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">Network Solutions</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">Cloud Services</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">Cybersecurity</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">Software Development</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-gold transition-colors">IT Training</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary-red mt-1 mr-3"></i>
+                            <span class="text-gray-300">KG 7 Ave, Kigali, Rwanda</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-primary-red mt-1 mr-3"></i>
+                            <span class="text-gray-300">+250 785 547 758</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary-red mt-1 mr-3"></i>
+                            <span class="text-gray-300">sales@romindigital.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-primary-red mt-1 mr-3"></i>
+                            <span class="text-gray-300">Mon-Fri: 8AM - 5PM<br>Sat: 9AM - 1PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Romin Digital Ltd. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-yellow-gold transition-colors text-sm">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-gold transition-colors text-sm">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-gold transition-colors text-sm">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-gradient-to-r from-primary-red to-orange-flame text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible hover:scale-110">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed top-32 right-8 z-50 space-y-4"></div>
+
+    <script>
+        // Enhanced Products Data with more details
+        const products = [
+            {
+                id: 1,
+                name: "Dell PowerEdge R740 Server",
+                category: "servers",
+                brand: "dell",
+                price: 3500,
+                originalPrice: 4000,
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                rating: 4.8,
+                stock: "in-stock",
+                description: "High-performance 2U rack server for enterprise workloads with dual Intel Xeon processors",
+                specs: ["Intel Xeon Gold 6248R", "32GB DDR4 RAM", "1TB NVMe SSD", "Redundant PSU"],
+                warranty: "3 years",
+                shipping: "Free shipping",
+                reviews: 127
+            },
+            {
+                id: 2,
+                name: "HP EliteBook 850 G8",
+                category: "laptops",
+                brand: "hp",
+                price: 1200,
+                originalPrice: 1400,
+                image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                rating: 4.6,
+                stock: "in-stock",
+                description: "Business laptop with advanced security features and premium build quality",
+                specs: ["Intel Core i7-1165G7", "16GB DDR4 RAM", "512GB SSD", "15.6\" FHD Display"],
+                warranty: "2 years",
+                shipping: "Free shipping",
+                reviews: 89
+            },
+            {
+                id: 3,
+                name: "Lenovo ThinkCentre M720q",
+                category: "desktops",
+                brand: "lenovo",
+                price: 650,
+                originalPrice: 750,
+                image: "https://images.unsplash.com/photo-1547082299-de196ea013d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                rating: 4.5,
+                stock: "low-stock",
+                description: "Compact desktop PC perfect for business environments and space-saving setups",
+                specs: ["Intel Core i5-9400T", "8GB DDR4 RAM", "256GB SSD", "Windows 11 Pro"],
+                warranty: "1 year",
+                shipping: "Free shipping",
+                reviews: 156
+            },
+            {
+                id: 4,
+                name: "Cisco Catalyst 2960-X Switch",
+                category: "networking",
+                brand: "cisco",
+                price: 800,
+                originalPrice: 900,
+                image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                rating: 4.7,
+                stock: "in-stock",
+                description: "24-port managed Ethernet switch with advanced Layer 2 features",
+                specs: ["24 x 10/100/1000 ports", "4 x SFP+ uplinks", "FlexStack-Plus", "Energy Efficient"],
+                warranty: "Lifetime",
+                shipping: "Free shipping",
+                reviews: 203
+            },
+            {
+                id: 5,
+                name: "Microsoft Office 365 Business",
+                category: "software",
+                brand: "microsoft",
+                price: 150,
+                originalPrice: 180,
+                image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                rating: 4.9,
+                stock: "in-stock",
+                description: "Annual subscription for complete productivity suite with cloud services",
+                specs: ["Word, Excel, PowerPoint", "Teams & OneDrive", "Email & Calendar", "1TB Cloud Storage"],
+                warranty: "N/A",
+                shipping: "Digital delivery",
+                reviews: 1847
+            },
+            {
+                id: 6,
+                name: "Dell UltraSharp U2720Q Monitor",
+                category: "accessories",
+                brand: "dell",
+                price: 450,
+                originalPrice: 500,
+                image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                rating: 4.8,
+                stock: "in-stock",
+                description: "27-inch 4K USB-C monitor with excellent color accuracy for professionals",
+                specs: ["27\" 4K UHD Display", "USB-C Hub", "99% sRGB Coverage", "Height Adjustable"],
+                warranty: "3 years",
+                shipping: "Free shipping",
+                reviews: 312
+            },
+            {
+                id: 7,
+                name: "HP ProLiant DL380 Gen10",
+                category: "servers",
+                brand: "hp",
+                price: 2800,
+                originalPrice: 3200,
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                rating: 4.7,
+                stock: "low-stock",
+                description: "Versatile 2U rack server designed for virtualization and cloud workloads",
+                specs: ["Intel Xeon Silver 4214R", "64GB DDR4 RAM", "2TB HDD + 480GB SSD", "iLO 5"],
+                warranty: "3 years",
+                shipping: "Free shipping",
+                reviews: 94
+            },
+            {
+                id: 8,
+                name: "Lenovo ThinkPad X1 Carbon",
+                category: "laptops",
+                brand: "lenovo",
+                price: 1800,
+                originalPrice: 2000,
+                image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                rating: 4.9,
+                stock: "in-stock",
+                description: "Ultra-lightweight business laptop with premium carbon fiber construction",
+                specs: ["Intel Core i7-1185G7", "16GB LPDDR4X RAM", "1TB NVMe SSD", "14\" WQHD Display"],
+                warranty: "3 years",
+                shipping: "Free shipping",
+                reviews: 267
+            },
+            {
+                id: 9,
+                name: "Cisco Meraki MX68 Firewall",
+                category: "networking",
+                brand: "cisco",
+                price: 1200,
+                originalPrice: 1350,
+                image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                rating: 4.6,
+                stock: "in-stock",
+                description: "Cloud-managed security appliance with advanced threat protection",
+                specs: ["450 Mbps Firewall Throughput", "Cloud Management", "Auto VPN", "Content Filtering"],
+                warranty: "1 year",
+                shipping: "Express shipping",
+                reviews: 78
+            },
+            {
+                id: 10,
+                name: "Microsoft Surface Studio 2+",
+                category: "desktops",
+                brand: "microsoft",
+                price: 4300,
+                originalPrice: 4800,
+                image: "https://images.unsplash.com/photo-1547082299-de196ea013d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                rating: 4.8,
+                stock: "in-stock",
+                description: "All-in-one desktop with stunning 28-inch touchscreen for creative professionals",
+                specs: ["Intel Core i7-11370H", "32GB DDR4 RAM", "1TB SSD", "28\" PixelSense Display"],
+                warranty: "2 years",
+                shipping: "White glove delivery",
+                reviews: 45
+            }
+        ];
+
+        let filteredProducts = [...products];
+        let currentPage = 1;
+        const productsPerPage = 8;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeStore();
+            renderProducts();
+            initializeEventListeners();
+            initializeAnimations();
+            initializeSearch();
+            initFilterToggle();
+        });
+
+        function initializeStore() {
+            // Mobile menu functionality
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileClose = document.getElementById('mobile-close');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            
+            if (mobileClose && mobileMenu) {
+                mobileClose.addEventListener('click', function() {
+                    mobileMenu.classList.add('translate-x-full');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            // Close mobile menu on link click
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('translate-x-full');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+        }
+
+        function initFilterToggle() {
+            const filterToggle = document.getElementById('filter-toggle');
+            const filterSidebar = document.getElementById('filter-sidebar');
+            const filterOverlay = document.getElementById('filter-overlay');
+            const closeFilters = document.getElementById('close-filters');
+
+            if (filterToggle && filterSidebar) {
+                filterToggle.addEventListener('click', function() {
+                    filterSidebar.classList.add('active');
+                    filterOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            if (filterOverlay) {
+                filterOverlay.addEventListener('click', function() {
+                    filterSidebar.classList.remove('active');
+                    filterOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            if (closeFilters) {
+                closeFilters.addEventListener('click', function() {
+                    filterSidebar.classList.remove('active');
+                    filterOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            // Initialize collapsible filter groups
+            document.querySelectorAll('.filter-group-title').forEach(title => {
+                title.addEventListener('click', function() {
+                    const group = this.closest('.filter-group');
+                    const content = group.querySelector('.filter-group-content');
+                    const icon = this.querySelector('i');
+                    
+                    // Toggle max-height for smooth animation
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        }
+
+        function initializeEventListeners() {
+            // Category filters
+            document.querySelectorAll('.category-filter').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.category-filter').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    filterProducts();
+                });
+            });
+
+            // Price filters
+            document.querySelectorAll('.price-filter, .brand-filter, .stock-filter').forEach(filter => {
+                filter.addEventListener('change', filterProducts);
+            });
+
+            // Sort functionality
+            const sortSelect = document.getElementById('sort-select');
+            const mobileSortSelect = document.getElementById('mobile-sort-select');
+            
+            if (sortSelect) {
+                sortSelect.addEventListener('change', sortProducts);
+            }
+            
+            if (mobileSortSelect) {
+                mobileSortSelect.addEventListener('change', sortProducts);
+            }
+
+            // Clear filters
+            const clearFiltersBtn = document.getElementById('clear-filters');
+            if (clearFiltersBtn) {
+                clearFiltersBtn.addEventListener('click', clearFilters);
+            }
+
+            // Load more
+            const loadMoreBtn = document.getElementById('load-more');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', loadMoreProducts);
+            }
+
+            // Back to top
+            window.addEventListener('scroll', handleScroll);
+            
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+
+        function handleScroll() {
+            const backToTop = document.getElementById('back-to-top');
+            const nav = document.getElementById('main-nav');
+            
+            if (backToTop) {
+                if (window.scrollY > 500) {
+                    backToTop.classList.remove('opacity-0', 'invisible');
+                    backToTop.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTop.classList.remove('opacity-100', 'visible');
+                    backToTop.classList.add('opacity-0', 'invisible');
+                }
+            }
+
+            // Keep navigation visible and maintain consistent styling on scroll
+            if (nav) {
+                if (window.scrollY > 100) {
+                    // Make navigation more opaque when scrolling
+                    nav.style.background = 'rgba(10, 44, 13, 0.95)';
+                    nav.style.backdropFilter = 'blur(20px)';
+                } else {
+                    // Original transparency when at top
+                    nav.style.background = 'rgba(10, 44, 13, 0.90)';
+                    nav.style.backdropFilter = 'blur(12px)';
+                }
+            }
+        }
+
+        function initializeAnimations() {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Animate category filters
+                gsap.from('.category-filter', {
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    delay: 0.5,
+                    ease: "power2.out"
+                });
+
+                // Animate filter sidebar
+                gsap.from('.filter-sidebar > div', {
+                    opacity: 0,
+                    x: -50,
+                    duration: 1,
+                    delay: 0.8,
+                    ease: "power2.out"
+                });
+
+                // Enhanced filter animations
+                document.querySelectorAll('.category-filter').forEach(filter => {
+                    filter.addEventListener('click', function() {
+                        gsap.to(this, {
+                            scale: 0.95,
+                            duration: 0.15,
+                            yoyo: true,
+                            repeat: 1,
+                            ease: "power2.inOut"
+                        });
+                    });
+                });
+            }
+        }
+
+        function initializeSearch() {
+            const searchInput = document.getElementById('product-search');
+            if (!searchInput) return;
+
+            let searchTimeout;
+            
+            searchInput.addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                const query = this.value.toLowerCase().trim();
+                
+                if (query.length > 0) {
+                    searchTimeout = setTimeout(() => {
+                        searchProducts(query);
+                        showSearchSuggestions(query);
+                    }, 300);
+                } else {
+                    filteredProducts = [...products];
+                    hideSearchSuggestions();
+                    currentPage = 1;
+                    renderProducts();
+                }
+            });
+
+            // Hide suggestions when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search-container')) {
+                    hideSearchSuggestions();
+                }
+            });
+        }
+
+        function searchProducts(query) {
+            if (query.length === 0) {
+                filteredProducts = [...products];
+            } else {
+                filteredProducts = products.filter(product => 
+                    product.name.toLowerCase().includes(query) ||
+                    product.description.toLowerCase().includes(query) ||
+                    product.category.toLowerCase().includes(query) ||
+                    product.brand.toLowerCase().includes(query) ||
+                    product.specs.some(spec => spec.toLowerCase().includes(query))
+                );
+            }
+
+            currentPage = 1;
+            renderProducts();
+        }
+
+        function showSearchSuggestions(query) {
+            const suggestions = products.filter(product => 
+                product.name.toLowerCase().includes(query) ||
+                product.category.toLowerCase().includes(query) ||
+                product.brand.toLowerCase().includes(query)
+            ).slice(0, 5);
+
+            const resultsContainer = document.getElementById('search-results');
+            if (!resultsContainer) return;
+            
+            if (suggestions.length > 0) {
+                resultsContainer.innerHTML = suggestions.map(product => `
+                    <div class="search-item" onclick="selectProduct(${product.id})">
+                        <div class="flex items-center gap-4">
+                            <img src="${product.image}" alt="${product.name}" class="w-12 h-12 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <div class="font-semibold text-deep-green">${product.name}</div>
+                                <div class="text-sm text-gray-500 flex items-center gap-2">
+                                    <span class="font-medium text-primary-red">${product.price.toLocaleString()}</span>
+                                    <span class="text-xs bg-gray-100 px-2 py-1 rounded">${product.category}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                resultsContainer.style.display = 'block';
+            } else {
+                resultsContainer.innerHTML = `
+                    <div class="p-4 text-center text-gray-500">
+                        <i class="fas fa-search-minus text-2xl mb-2"></i>
+                        <p>No products found for "${query}"</p>
+                    </div>
+                `;
+                resultsContainer.style.display = 'block';
+            }
+        }
+
+        function hideSearchSuggestions() {
+            const resultsContainer = document.getElementById('search-results');
+            if (resultsContainer) {
+                resultsContainer.style.display = 'none';
+            }
+        }
+
+        function selectProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            const searchInput = document.getElementById('product-search');
+            
+            if (product && searchInput) {
+                searchInput.value = product.name;
+                hideSearchSuggestions();
+                searchProducts(product.name.toLowerCase());
+                
+                // Scroll to products section
+                document.getElementById('products').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }
+        }
+
+        function renderProducts() {
+            const container = document.getElementById('products-container');
+            if (!container) return;
+
+            const startIndex = 0;
+            const endIndex = currentPage * productsPerPage;
+            const productsToShow = filteredProducts.slice(startIndex, endIndex);
+
+            if (currentPage === 1) {
+                container.innerHTML = '';
+                
+                // Show loading skeletons first
+                for (let i = 0; i < Math.min(productsPerPage, filteredProducts.length); i++) {
+                    const skeleton = createSkeletonCard();
+                    container.appendChild(skeleton);
+                }
+
+                // Replace skeletons with actual products after a short delay
+                setTimeout(() => {
+                    container.innerHTML = '';
+                    productsToShow.forEach((product, index) => {
+                        setTimeout(() => {
+                            const productCard = createProductCard(product);
+                            container.appendChild(productCard);
+                        }, index * 100);
+                    });
+                }, 500);
+            } else {
+                productsToShow.slice((currentPage - 1) * productsPerPage).forEach((product, index) => {
+                    setTimeout(() => {
+                        const productCard = createProductCard(product);
+                        container.appendChild(productCard);
+                    }, index * 100);
+                });
+            }
+
+            updateProductCount();
+            updateLoadMoreButton();
+        }
+
+        function createSkeletonCard() {
+            const skeleton = document.createElement('div');
+            skeleton.className = 'bg-white rounded-2xl shadow-product overflow-hidden';
+            skeleton.innerHTML = `
+                <div class="skeleton h-48 w-full"></div>
+                <div class="p-6">
+                    <div class="skeleton h-4 w-3/4 mb-2 rounded"></div>
+                    <div class="skeleton h-6 w-full mb-2 rounded"></div>
+                    <div class="skeleton h-4 w-2/3 mb-4 rounded"></div>
+                    <div class="skeleton h-8 w-1/3 mb-4 rounded-full"></div>
+                    <div class="skeleton h-12 w-full rounded-xl"></div>
+                </div>
+            `;
+            return skeleton;
+        }
+
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card bg-white rounded-2xl shadow-product overflow-hidden hover:shadow-product-hover transition-all duration-300';
+            card.dataset.category = product.category;
+            card.dataset.brand = product.brand;
+            card.dataset.price = product.price;
+            card.dataset.stock = product.stock;
+
+            const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+            const stockClass = product.stock === 'in-stock' ? 'in-stock' : product.stock === 'low-stock' ? 'low-stock' : 'out-of-stock';
+            const stockText = product.stock === 'in-stock' ? 'In Stock' : product.stock === 'low-stock' ? 'Low Stock' : 'Out of Stock';
+
+            card.innerHTML = `
+                <div class="relative overflow-hidden">
+                    <img src="${product.image}" alt="${product.name}" class="product-image w-full h-56 object-cover">
+                    <div class="stock-badge ${stockClass}">${stockText}</div>
+                    ${discount > 0 ? `<div class="absolute top-4 left-4 bg-gradient-to-r from-primary-red to-orange-flame text-white px-3 py-1 rounded-full text-sm font-bold">-${discount}%</div>` : ''}
+                    <div class="product-overlay">
+                        <button class="bg-white text-deep-green px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg" onclick="buyNow(${product.id})">
+                            <i class="fas fa-shopping-bag mr-2"></i>Buy Now
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="rating-stars">
+                            ${generateStars(product.rating)}
+                        </div>
+                        <span class="text-sm text-gray-500">(${product.reviews} reviews)</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-deep-green mb-2 line-clamp-2">${product.name}</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-2">${product.description}</p>
+                    
+                    <!-- Specifications -->
+                    <div class="mb-4">
+                        <div class="text-xs text-gray-500 mb-1">Key Specs:</div>
+                        <div class="flex flex-wrap gap-1">
+                            ${product.specs.slice(0, 2).map(spec => `
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">${spec}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="price-badge text-lg">${product.price.toLocaleString()}</span>
+                            ${product.originalPrice > product.price ? `<span class="text-gray-400 line-through text-sm">${product.originalPrice.toLocaleString()}</span>` : ''}
+                        </div>
+                        <div class="text-xs text-gray-500">${product.shipping}</div>
+                    </div>
+                    
+                    <button class="w-full bg-gradient-to-r from-primary-red to-orange-flame text-white py-3 rounded-xl hover:from-orange-flame hover:to-yellow-gold transition-all duration-300 font-bold ${product.stock === 'out-of-stock' ? 'opacity-50 cursor-not-allowed' : 'transform hover:scale-105'}" 
+                            onclick="buyNow(${product.id})" 
+                            ${product.stock === 'out-of-stock' ? 'disabled' : ''}>
+                        <i class="fas fa-shopping-bag mr-2"></i>
+                        ${product.stock === 'out-of-stock' ? 'Out of Stock' : 'Buy Now'}
+                    </button>
+                </div>
+            `;
+
+            // Add entrance animation
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+
+            return card;
+        }
+
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            let stars = '';
+
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star text-yellow-gold"></i>';
+            }
+
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt text-yellow-gold"></i>';
+            }
+
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star text-gray-300"></i>';
+            }
+
+            return stars;
+        }
+
+        function filterProducts() {
+            const activeCategory = document.querySelector('.category-filter.active')?.dataset.category || 'all';
+            const priceFilters = Array.from(document.querySelectorAll('.price-filter:checked'));
+            const brandFilters = Array.from(document.querySelectorAll('.brand-filter:checked'));
+            const stockFilters = Array.from(document.querySelectorAll('.stock-filter:checked'));
+
+            filteredProducts = products.filter(product => {
+                // Category filter
+                if (activeCategory !== 'all' && product.category !== activeCategory) {
+                    return false;
+                }
+
+                // Price filter
+                if (priceFilters.length > 0) {
+                    const matchesPrice = priceFilters.some(filter => {
+                        const min = parseInt(filter.dataset.min);
+                        const max = parseInt(filter.dataset.max);
+                        return product.price >= min && product.price <= max;
+                    });
+                    if (!matchesPrice) return false;
+                }
+
+                // Brand filter
+                if (brandFilters.length > 0) {
+                    const matchesBrand = brandFilters.some(filter => product.brand === filter.dataset.brand);
+                    if (!matchesBrand) return false;
+                }
+
+                // Stock filter
+                if (stockFilters.length > 0) {
+                    const matchesStock = stockFilters.some(filter => product.stock === filter.dataset.stock);
+                    if (!matchesStock) return false;
+                }
+
+                return true;
+            });
+
+            currentPage = 1;
+            renderProducts();
+        }
+
+        function sortProducts() {
+            const sortBy = document.getElementById('sort-select')?.value || 'name';
+
+            filteredProducts.sort((a, b) => {
+                switch (sortBy) {
+                    case 'price-low':
+                        return a.price - b.price;
+                    case 'price-high':
+                        return b.price - a.price;
+                    case 'rating':
+                        return b.rating - a.rating;
+                    case 'newest':
+                        return b.id - a.id;
+                    case 'name':
+                    default:
+                        return a.name.localeCompare(b.name);
+                }
+            });
+
+            currentPage = 1;
+            renderProducts();
+        }
+
+        function clearFilters() {
+            // Reset category
+            document.querySelectorAll('.category-filter').forEach(btn => btn.classList.remove('active'));
+            const allCategoryBtn = document.querySelector('.category-filter[data-category="all"]');
+            if (allCategoryBtn) allCategoryBtn.classList.add('active');
+
+            // Reset checkboxes
+            document.querySelectorAll('.price-filter, .brand-filter, .stock-filter').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+
+            // Reset search
+            const searchInput = document.getElementById('product-search');
+            if (searchInput) searchInput.value = '';
+
+            // Reset sort
+            const sortSelect = document.getElementById('sort-select');
+            if (sortSelect) sortSelect.value = 'name';
+
+            // Reset products
+            filteredProducts = [...products];
+            currentPage = 1;
+            renderProducts();
+            hideSearchSuggestions();
+            
+            showToast('Filters cleared', 'success');
+        }
+
+        function buyNow(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            showToast(`Preparing to purchase ${product.name} for ${product.price.toLocaleString()}`, 'success');
+        }
+
+        function loadMoreProducts() {
+            currentPage++;
+            const container = document.getElementById('products-container');
+            if (!container) return;
+
+            const startIndex = (currentPage - 1) * productsPerPage;
+            const endIndex = currentPage * productsPerPage;
+            const productsToShow = filteredProducts.slice(startIndex, endIndex);
+
+            productsToShow.forEach((product, index) => {
+                setTimeout(() => {
+                    const productCard = createProductCard(product);
+                    container.appendChild(productCard);
+                }, index * 100);
+            });
+
+            updateLoadMoreButton();
+            showToast(`Loaded ${productsToShow.length} more products`, 'success');
+        }
+
+        function updateLoadMoreButton() {
+            const loadMoreBtn = document.getElementById('load-more');
+            if (!loadMoreBtn) return;
+
+            const totalShown = currentPage * productsPerPage;
+            
+            if (totalShown >= filteredProducts.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+                const remaining = filteredProducts.length - totalShown;
+                loadMoreBtn.innerHTML = `<i class="fas fa-plus mr-2"></i>Load ${Math.min(remaining, productsPerPage)} More Products`;
+            }
+        }
+
+        function updateProductCount() {
+            const countElement = document.getElementById('product-count');
+            if (!countElement) return;
+
+            const totalShown = Math.min(currentPage * productsPerPage, filteredProducts.length);
+            
+            if (filteredProducts.length === 0) {
+                countElement.textContent = 'No products found';
+            } else {
+                countElement.textContent = `Showing ${totalShown} of ${filteredProducts.length} products`;
+            }
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = `toast animate-slideUp`;
+            
+            const icons = {
+                success: 'fas fa-check-circle',
+                error: 'fas fa-exclamation-circle',
+                warning: 'fas fa-exclamation-triangle',
+                info: 'fas fa-info-circle'
+            };
+
+            toast.innerHTML = `
+                <i class="${icons[type] || icons.info}"></i>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+
+            // Auto remove after 4 seconds
+            setTimeout(() => {
+                toast.style.animation = 'fadeIn 0.3s ease-out reverse';
+                setTimeout(() => {
+                    if (container.contains(toast)) {
+                        container.removeChild(toast);
+                    }
+                }, 300);
+            }, 4000);
+        }
+
+        // Hero Section Functions
+        function scrollToProducts() {
+            const productsSection = document.getElementById('products');
+            if (productsSection) {
+                productsSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                showToast('Welcome to our product catalog!', 'success');
+            }
+        }
+
+        function filterByCategory(category) {
+            // First scroll to products
+            scrollToProducts();
+            
+            // Wait a bit for scroll then filter
+            setTimeout(() => {
+                // Clear active states
+                document.querySelectorAll('.category-filter').forEach(btn => btn.classList.remove('active'));
+                
+                // Set the correct category as active
+                const categoryBtn = document.querySelector(`[data-category="${category}"]`);
+                if (categoryBtn) {
+                    categoryBtn.classList.add('active');
+                    filterProducts();
+                    showToast(`Showing ${category} products with special discounts!`, 'success');
+                }
+            }, 800);
+        }
+
+        function showInstallationInfo() {
+            showToast('Free professional installation and setup included with enterprise purchases over $1000!', 'info');
+        }
+
+        function showDeliveryInfo() {
+            showToast('Free delivery across Rwanda within 24-48 hours. Express delivery available for urgent orders.', 'info');
+        }
+
+        function showBundleOffers() {
+            scrollToProducts();
+            setTimeout(() => {
+                showToast('💼 Complete office bundles available! Laptop + Software + Setup + 1 Year Support. Contact us for custom quotes.', 'success');
+            }, 800);
+        }
+
+        function showSupportInfo() {
+            showToast('🛠️ FREE 24/7 technical support included with every purchase. Remote assistance, on-site support, and training available.', 'info');
+        }
+    </script>
+</body>
+</html>
